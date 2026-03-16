@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Rohan Akurathi</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="nav-wrap">
+          <a class="brand" href="index.html">
+            <span class="brand-mark">Data Science Portfolio</span>
+            <span class="brand-name">Rohan Akurathi</span>
+          </a>
+          <nav class="nav-links" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="experience.html">Experience</a>
+            <a class="active" href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="content-wrap">
+        <section class="panel hero-copy">
+          <div class="section-kicker">Projects</div>
+          <h1>Data science work grounded in prediction, experimentation, and interpretation.</h1>
+          <p class="lead">
+            These projects highlight the types of analytical problems I enjoy solving: prediction under uncertainty, causal analysis,
+            and turning model output into recommendations that are useful in practice.
+          </p>
+        </section>
+
+        <section class="section project-grid">
+          <article class="project-card">
+            <div class="section-kicker">Healthcare Modeling</div>
+            <h2>Skin Cancer Prediction &amp; Clinical Insight Modeling</h2>
+            <p>
+              Built logistic regression, random forest, and gradient boosting models to predict skin cancer risk from clinical and image features.
+              The project focused on balancing predictive performance with interpretable clinical insight.
+            </p>
+            <ul>
+              <li>Engineered features and addressed class imbalance.</li>
+              <li>Validated models using an 80/20 split with cross-validation.</li>
+              <li>Evaluated ROC-AUC and precision/recall, then translated outputs into clinical risk scores.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">Feature Engineering</span>
+              <span class="tag">Model Validation</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="section-kicker">Experimentation</div>
+            <h2>Causal Inference &amp; Product Experimentation Analysis</h2>
+            <p>
+              Designed and analyzed randomized experiments to measure product feature impact on engagement and conversion, with an
+              emphasis on estimating causal lift rather than relying on raw correlations.
+            </p>
+            <ul>
+              <li>Applied hypothesis testing and regression modeling to control for confounders.</li>
+              <li>Used effect size estimation and power analysis to frame recommendations.</li>
+              <li>Delivered statistically grounded takeaways for product decisions.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">A/B Testing</span>
+              <span class="tag">Regression</span>
+              <span class="tag">Causal Inference</span>
+              <span class="tag">Statistical Analysis</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="section-kicker">Product Analytics</div>
+            <h2>Analytics and Recommendation Systems at UCLA Creative Labs</h2>
+            <p>
+              Helped design Firebase-backed data flows, analytics pipelines, and ML-driven personalization features for a mobile product
+              environment with both engineering and user experience constraints.
+            </p>
+            <ul>
+              <li>Structured user data collection for scalable analysis.</li>
+              <li>Integrated recommendation and tagging logic.</li>
+              <li>Tracked feature adoption and engagement metrics to support iteration.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">Firebase</span>
+              <span class="tag">APIs</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Analytics</span>
+            </div>
+          </article>
+        </section>
+
+        <section class="section split">
+          <div class="card">
+            <div class="section-kicker">Project Approach</div>
+            <h2>What I optimize for</h2>
+            <ul>
+              <li>Clear definition of the prediction or decision problem.</li>
+              <li>Reliable validation, not just a good headline metric.</li>
+              <li>Interpretability when stakeholders need trust and context.</li>
+              <li>Translating results into actions, not just charts or notebooks.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="section-kicker">Next Step</div>
+            <h2>Want the full background?</h2>
+            <p>
+              The experience page includes role-based detail, and the resume page provides a complete PDF version for download or review.
+            </p>
+            <div class="cta-row">
+              <a class="button primary" href="experience.html">View Experience</a>
+              <a class="button secondary" href="assets/Rohan_Akurathi_Resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer-wrap">
+        <div class="footer-card">
+          <span>Open to roles that combine analysis, modeling, and execution.</span>
+          <a href="contact.html">Contact</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

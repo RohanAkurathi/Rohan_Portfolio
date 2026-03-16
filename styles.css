@@ -1,0 +1,510 @@
+:root {
+  --bg: #f4f0e8;
+  --paper: #fffdf8;
+  --paper-strong: #f7f2e8;
+  --ink: #1a2230;
+  --muted: #566173;
+  --line: rgba(26, 34, 48, 0.12);
+  --accent: #0c5c56;
+  --accent-soft: #d8ece8;
+  --accent-deep: #0f3f4f;
+  --gold: #d0a85c;
+  --shadow: 0 24px 60px rgba(26, 34, 48, 0.08);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --max: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(208, 168, 92, 0.18), transparent 28%),
+    radial-gradient(circle at right 20%, rgba(12, 92, 86, 0.12), transparent 22%),
+    linear-gradient(180deg, #f8f5ee 0%, var(--bg) 100%);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  background: rgba(248, 245, 238, 0.82);
+  border-bottom: 1px solid rgba(26, 34, 48, 0.08);
+}
+
+.nav-wrap,
+.content-wrap,
+.footer-wrap {
+  width: min(calc(100% - 2rem), var(--max));
+  margin: 0 auto;
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.brand-mark {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.brand-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.7rem;
+}
+
+.nav-links a {
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  transition: 160ms ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--ink);
+  background: rgba(12, 92, 86, 0.08);
+}
+
+.content-wrap {
+  padding: 2.2rem 0 4rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.panel,
+.card,
+.timeline-item,
+.contact-panel,
+.resume-frame,
+.project-card,
+.skill-cloud,
+.portrait-card {
+  background: rgba(255, 253, 248, 0.88);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-copy::after {
+  content: "";
+  position: absolute;
+  inset: auto -4rem -4rem auto;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(12, 92, 86, 0.14), transparent 70%);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  margin: 0;
+}
+
+h1 {
+  margin-top: 1rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 0.85rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+.lead {
+  font-size: 1.08rem;
+  color: var(--muted);
+  max-width: 62ch;
+  margin: 1.15rem 0 0;
+}
+
+.cta-row,
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.6rem;
+}
+
+.button,
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.2rem;
+  font-weight: 600;
+  transition: 160ms ease;
+}
+
+.button.primary {
+  color: white;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+}
+
+.button.secondary {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.button:hover,
+.text-link:hover {
+  transform: translateY(-1px);
+}
+
+.hero-side {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.portrait-card {
+  padding: 1.5rem;
+}
+
+.portrait {
+  aspect-ratio: 4 / 5;
+  border-radius: calc(var(--radius) - 6px);
+  background:
+    linear-gradient(180deg, rgba(12, 92, 86, 0.92), rgba(15, 63, 79, 0.92)),
+    linear-gradient(135deg, rgba(208, 168, 92, 0.2), transparent 50%);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.portrait::before,
+.portrait::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.portrait::before {
+  width: 12rem;
+  height: 12rem;
+  top: -2rem;
+  right: -1.5rem;
+}
+
+.portrait::after {
+  width: 8rem;
+  height: 8rem;
+  bottom: 1rem;
+  left: -1rem;
+}
+
+.portrait-initials {
+  position: relative;
+  z-index: 1;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 10vw, 6rem);
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: -0.06em;
+}
+
+.portrait-note {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.mini-grid,
+.stats-grid,
+.card-grid,
+.project-grid,
+.contact-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.mini-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card,
+.timeline-item,
+.project-card,
+.contact-panel,
+.skill-cloud {
+  padding: 1.4rem;
+}
+
+.stat-value {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.95rem;
+  color: var(--accent-deep);
+}
+
+.muted,
+.meta,
+li,
+p {
+  color: var(--muted);
+}
+
+.section {
+  margin-top: 1.8rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.section-kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.card-grid,
+.project-grid,
+.contact-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(12, 92, 86, 0.08);
+  color: var(--accent-deep);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.timeline-item {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.timeline-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+}
+
+.timeline-role {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.timeline-org {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.timeline-date {
+  font-size: 0.92rem;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+ul {
+  margin: 0.2rem 0 0;
+  padding-left: 1.15rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.4rem;
+}
+
+.resume-frame {
+  overflow: hidden;
+}
+
+.resume-frame iframe {
+  width: 100%;
+  height: 72vh;
+  border: 0;
+}
+
+.footer-wrap {
+  padding: 0 0 2rem;
+}
+
+.footer-card {
+  border-top: 1px solid rgba(26, 34, 48, 0.1);
+  padding-top: 1.5rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.highlight-line {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 1.4rem 0;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .split,
+  .card-grid,
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mini-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timeline-head,
+  .section-header,
+  .footer-card {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-wrap {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .nav-links {
+    justify-content: start;
+  }
+
+  .hero-copy,
+  .portrait-card,
+  .card,
+  .timeline-item,
+  .project-card,
+  .contact-panel,
+  .skill-cloud {
+    padding: 1.2rem;
+  }
+
+  .content-wrap {
+    padding-top: 1.5rem;
+  }
+
+  .mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
