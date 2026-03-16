@@ -1,17 +1,17 @@
 :root {
-  --bg: #f4f0e8;
-  --paper: #fffdf8;
-  --paper-strong: #f7f2e8;
-  --ink: #1a2230;
-  --muted: #566173;
+  --bg: #f5f5f1;
+  --paper: #ffffff;
+  --paper-strong: #f8f8f5;
+  --ink: #1d2430;
+  --muted: #5c6573;
   --line: rgba(26, 34, 48, 0.12);
   --accent: #0c5c56;
   --accent-soft: #d8ece8;
   --accent-deep: #0f3f4f;
   --gold: #d0a85c;
-  --shadow: 0 24px 60px rgba(26, 34, 48, 0.08);
-  --radius: 24px;
-  --radius-sm: 16px;
+  --shadow: 0 10px 24px rgba(26, 34, 48, 0.05);
+  --radius: 18px;
+  --radius-sm: 14px;
   --max: 1180px;
 }
 
@@ -27,10 +27,7 @@ body {
   margin: 0;
   font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(208, 168, 92, 0.18), transparent 28%),
-    radial-gradient(circle at right 20%, rgba(12, 92, 86, 0.12), transparent 22%),
-    linear-gradient(180deg, #f8f5ee 0%, var(--bg) 100%);
+  background: var(--bg);
   line-height: 1.6;
 }
 
@@ -52,8 +49,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(14px);
-  background: rgba(248, 245, 238, 0.82);
+  backdrop-filter: blur(10px);
+  background: rgba(245, 245, 241, 0.92);
   border-bottom: 1px solid rgba(26, 34, 48, 0.08);
 }
 
@@ -119,8 +116,8 @@ img {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap: 1.25rem;
   align-items: stretch;
 }
 
@@ -132,26 +129,14 @@ img {
 .project-card,
 .skill-cloud,
 .portrait-card {
-  background: rgba(255, 253, 248, 0.88);
+  background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
 
 .hero-copy {
-  padding: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-copy::after {
-  content: "";
-  position: absolute;
-  inset: auto -4rem -4rem auto;
-  width: 16rem;
-  height: 16rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(12, 92, 86, 0.14), transparent 70%);
+  padding: 2.2rem;
 }
 
 .eyebrow {
@@ -164,7 +149,7 @@ img {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  background: var(--accent-soft);
+  background: #edf5f2;
   color: var(--accent-deep);
 }
 
@@ -178,7 +163,7 @@ h3 {
 h1 {
   margin-top: 1rem;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-size: clamp(2.5rem, 4vw, 4rem);
   letter-spacing: -0.04em;
 }
 
@@ -193,7 +178,7 @@ h3 {
 }
 
 .lead {
-  font-size: 1.08rem;
+  font-size: 1rem;
   color: var(--muted);
   max-width: 62ch;
   margin: 1.15rem 0 0;
@@ -221,12 +206,12 @@ h3 {
 
 .button.primary {
   color: white;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+  background: var(--accent);
 }
 
 .button.secondary {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--paper);
 }
 
 .button:hover,
@@ -236,58 +221,28 @@ h3 {
 
 .hero-side {
   display: grid;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .portrait-card {
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .portrait {
   aspect-ratio: 4 / 5;
   border-radius: calc(var(--radius) - 6px);
-  background:
-    linear-gradient(180deg, rgba(12, 92, 86, 0.92), rgba(15, 63, 79, 0.92)),
-    linear-gradient(135deg, rgba(208, 168, 92, 0.2), transparent 50%);
-  position: relative;
+  background: var(--paper-strong);
   overflow: hidden;
-  display: grid;
-  place-items: center;
 }
 
-.portrait::before,
-.portrait::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.portrait::before {
-  width: 12rem;
-  height: 12rem;
-  top: -2rem;
-  right: -1.5rem;
-}
-
-.portrait::after {
-  width: 8rem;
-  height: 8rem;
-  bottom: 1rem;
-  left: -1rem;
-}
-
-.portrait-initials {
-  position: relative;
-  z-index: 1;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(4rem, 10vw, 6rem);
-  color: rgba(255, 255, 255, 0.92);
-  letter-spacing: -0.06em;
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .portrait-note {
-  margin: 1rem 0 0;
+  margin: 0.85rem 0 0;
   color: var(--muted);
   font-size: 0.94rem;
 }
@@ -310,7 +265,7 @@ h3 {
 .project-card,
 .contact-panel,
 .skill-cloud {
-  padding: 1.4rem;
+  padding: 1.2rem;
 }
 
 .stat-value {
@@ -351,6 +306,7 @@ p {
 .project-grid,
 .contact-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .list-reset {
@@ -418,7 +374,7 @@ ul {
 .split {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 1.4rem;
+  gap: 1rem;
 }
 
 .resume-frame {
@@ -497,7 +453,7 @@ ul {
   .project-card,
   .contact-panel,
   .skill-cloud {
-    padding: 1.2rem;
+    padding: 1rem;
   }
 
   .content-wrap {
