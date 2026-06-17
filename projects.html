@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Rohan Akurathi</title>
+    <meta
+      name="description"
+      content="Machine learning and data science projects by Rohan Akurathi — a two-stage Yelp recommender, semantic search, clinical risk modeling, and product experimentation."
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -11,7 +15,7 @@
       <header class="site-header">
         <div class="nav-wrap">
           <a class="brand" href="index.html">
-            <span class="brand-mark">Data Science Portfolio</span>
+            <span class="brand-mark">Data Scientist · ML Engineer</span>
             <span class="brand-name">Rohan Akurathi</span>
           </a>
           <nav class="nav-links" aria-label="Primary">
@@ -27,91 +31,167 @@
       <main class="content-wrap">
         <section class="panel hero-copy">
           <div class="section-kicker">Projects</div>
-          <h1>Data science work grounded in prediction, experimentation, and interpretation.</h1>
+          <h1>End-to-end ML, evaluated honestly.</h1>
           <p class="lead">
-            These projects highlight the types of analytical problems I enjoy solving: prediction under uncertainty, causal analysis,
-            and turning model output into recommendations that are useful in practice.
+            These are systems, not notebooks. Each one frames a real problem, builds a model that earns its complexity, and is
+            measured on data it has never seen — then made interpretable enough to trust.
           </p>
         </section>
 
-        <section class="section project-grid">
-          <article class="project-card">
-            <div class="section-kicker">Healthcare Modeling</div>
-            <h2>Skin Cancer Prediction &amp; Clinical Insight Modeling</h2>
-            <p>
-              Built logistic regression, random forest, and gradient boosting models to predict skin cancer risk from clinical and image features.
-              The project focused on balancing predictive performance with interpretable clinical insight.
-            </p>
-            <ul>
-              <li>Engineered features and addressed class imbalance.</li>
-              <li>Validated models using an 80/20 split with cross-validation.</li>
-              <li>Evaluated ROC-AUC and precision/recall, then translated outputs into clinical risk scores.</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">Python</span>
-              <span class="tag">scikit-learn</span>
-              <span class="tag">Feature Engineering</span>
-              <span class="tag">Model Validation</span>
+        <!-- Flagship project -->
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Flagship · Recommender Systems &amp; NLP</div>
+              <h2>Yelp Recommender &amp; Semantic Search</h2>
             </div>
-          </article>
+          </div>
 
-          <article class="project-card">
-            <div class="section-kicker">Experimentation</div>
-            <h2>Causal Inference &amp; Product Experimentation Analysis</h2>
-            <p>
-              Designed and analyzed randomized experiments to measure product feature impact on engagement and conversion, with an
-              emphasis on estimating causal lift rather than relying on raw correlations.
-            </p>
-            <ul>
-              <li>Applied hypothesis testing and regression modeling to control for confounders.</li>
-              <li>Used effect size estimation and power analysis to frame recommendations.</li>
-              <li>Delivered statistically grounded takeaways for product decisions.</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">A/B Testing</span>
-              <span class="tag">Regression</span>
-              <span class="tag">Causal Inference</span>
-              <span class="tag">Statistical Analysis</span>
-            </div>
-          </article>
+          <article class="project-card featured">
+            <div class="project-featured-grid">
+              <div class="pf-body">
+                <p>
+                  Two production-style systems on the <strong>Yelp Open Dataset</strong> (~7M reviews, 150k businesses, 2M users).
+                  A <strong>two-stage restaurant recommender</strong> — ALS generates candidates, a LightGBM LambdaMART model
+                  reranks them — plus a <strong>semantic search engine</strong> over review text using a fine-tuned sentence
+                  encoder and a FAISS index. Everything is evaluated on a held-out <em>future</em> time window, so the scores
+                  reflect genuine generalization, not leakage.
+                </p>
+                <ul>
+                  <li>Temporal split + iterative k-core filtering → 1.2M interactions, 85k users, 14k businesses.</li>
+                  <li>~40 engineered user / business / cross features, all computed strictly before the prediction window.</li>
+                  <li>LightGBM reranking lifts <strong>NDCG@10 ~25% over ALS</strong> and ~82% over a popularity baseline.</li>
+                  <li>Fine-tuning a MiniLM encoder lifts search <strong>Hit@10 ~33%</strong> on businesses it never saw.</li>
+                  <li>SHAP explains <em>why</em> the ranker promotes a place; Streamlit dashboard demos all three models.</li>
+                </ul>
 
-          <article class="project-card">
-            <div class="section-kicker">Product Analytics</div>
-            <h2>Analytics and Recommendation Systems at UCLA Creative Labs</h2>
-            <p>
-              Helped design Firebase-backed data flows, analytics pipelines, and ML-driven personalization features for a mobile product
-              environment with both engineering and user experience constraints.
-            </p>
-            <ul>
-              <li>Structured user data collection for scalable analysis.</li>
-              <li>Integrated recommendation and tagging logic.</li>
-              <li>Tracked feature adoption and engagement metrics to support iteration.</li>
-            </ul>
-            <div class="tag-row">
-              <span class="tag">Firebase</span>
-              <span class="tag">APIs</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">Analytics</span>
+                <div class="metric-chips">
+                  <div class="metric-chip">
+                    <div class="mc-value">+25%</div>
+                    <div class="mc-label">NDCG@10 lift</div>
+                  </div>
+                  <div class="metric-chip">
+                    <div class="mc-value">+33%</div>
+                    <div class="mc-label">Search Hit@10</div>
+                  </div>
+                  <div class="metric-chip">
+                    <div class="mc-value">7M+</div>
+                    <div class="mc-label">Reviews</div>
+                  </div>
+                  <div class="metric-chip">
+                    <div class="mc-value">~40</div>
+                    <div class="mc-label">Features</div>
+                  </div>
+                </div>
+
+                <div class="tag-row">
+                  <span class="tag">Python</span>
+                  <span class="tag">ALS</span>
+                  <span class="tag">LightGBM / LambdaMART</span>
+                  <span class="tag">PyTorch</span>
+                  <span class="tag">FAISS</span>
+                  <span class="tag">SHAP</span>
+                  <span class="tag">Streamlit</span>
+                </div>
+
+                <a class="repo-link" href="https://github.com/RohanAkurathi/Yelp-Open-Data-Project" target="_blank" rel="noreferrer">
+                  View code on GitHub →
+                </a>
+              </div>
+
+              <div class="pf-media">
+                <img src="assets/projects/yelp_recsys_metrics.png" alt="Held-out ranking quality: popularity vs ALS vs two-stage LightGBM across NDCG@10, Recall@10, and MAP@10" />
+                <p class="media-caption">Held-out ranking quality — the two-stage model wins on every metric.</p>
+                <img src="assets/projects/yelp_shap_beeswarm.png" alt="SHAP beeswarm plot showing which features drive the ranker's decisions" />
+                <p class="media-caption">SHAP — what actually drives each recommendation.</p>
+              </div>
             </div>
           </article>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">More Work</div>
+              <h2>Research &amp; applied projects</h2>
+            </div>
+          </div>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="section-kicker">Healthcare Modeling</div>
+              <h2 style="font-size:1.35rem">Skin Cancer Risk &amp; Clinical Insight Modeling</h2>
+              <p>
+                Logistic regression, random forest, and gradient boosting models predicting skin cancer risk from clinical and
+                image features — tuned to balance predictive power with interpretable clinical insight.
+              </p>
+              <ul>
+                <li>Engineered features and addressed class imbalance.</li>
+                <li>Validated with cross-validation on an 80/20 split.</li>
+                <li>Translated ROC-AUC and precision/recall into clinical risk scores.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">scikit-learn</span>
+                <span class="tag">Gradient Boosting</span>
+                <span class="tag">Model Validation</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="section-kicker">Experimentation</div>
+              <h2 style="font-size:1.35rem">Causal Inference &amp; Product Experimentation</h2>
+              <p>
+                Designed and analyzed randomized experiments to estimate the causal impact of product features on engagement and
+                conversion — measuring real lift, not raw correlation.
+              </p>
+              <ul>
+                <li>Hypothesis testing and regression to control for confounders.</li>
+                <li>Effect-size estimation and power analysis to size decisions.</li>
+                <li>Statistically grounded recommendations for product teams.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">A/B Testing</span>
+                <span class="tag">Causal Inference</span>
+                <span class="tag">Regression</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="section-kicker">Product Analytics</div>
+              <h2 style="font-size:1.35rem">Analytics &amp; Recommendations at UCLA Creative Labs</h2>
+              <p>
+                Firebase-backed data flows, analytics pipelines, and ML-driven personalization for a live mobile product, balancing
+                engineering and UX constraints.
+              </p>
+              <ul>
+                <li>Structured user data collection for scalable analysis.</li>
+                <li>Integrated recommendation and tagging logic.</li>
+                <li>Tracked feature adoption and engagement to drive iteration.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Firebase</span>
+                <span class="tag">APIs</span>
+                <span class="tag">Machine Learning</span>
+              </div>
+            </article>
+          </div>
         </section>
 
         <section class="section split">
           <div class="card">
-            <div class="section-kicker">Project Approach</div>
+            <div class="section-kicker">How I work</div>
             <h2>What I optimize for</h2>
             <ul>
-              <li>Clear definition of the prediction or decision problem.</li>
-              <li>Reliable validation, not just a good headline metric.</li>
-              <li>Interpretability when stakeholders need trust and context.</li>
-              <li>Translating results into actions, not just charts or notebooks.</li>
+              <li>A sharp definition of the prediction or decision problem.</li>
+              <li>Honest validation — held-out and out-of-time, never a flattering metric.</li>
+              <li>Interpretability when stakeholders need to trust the model.</li>
+              <li>Turning results into actions, not just charts in a notebook.</li>
             </ul>
           </div>
           <div class="card">
             <div class="section-kicker">Next Step</div>
             <h2>Want the full background?</h2>
             <p>
-              The experience page includes role-based detail, and the resume page provides a complete PDF version for download or review.
+              The experience page covers each role in depth, and my resume is available as a one-page PDF for download or review.
             </p>
             <div class="cta-row">
               <a class="button primary" href="experience.html">View Experience</a>
@@ -124,7 +204,11 @@
       <footer class="footer-wrap">
         <div class="footer-card">
           <span>Open to roles that combine analysis, modeling, and execution.</span>
-          <a href="contact.html">Contact</a>
+          <div class="footer-links">
+            <a href="contact.html">Contact</a>
+            <a href="https://github.com/RohanAkurathi" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/rohan-akurathi/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
         </div>
       </footer>
     </div>
