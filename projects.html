@@ -6,7 +6,7 @@
     <title>Projects | Rohan Akurathi</title>
     <meta
       name="description"
-      content="Machine learning and data science projects by Rohan Akurathi — a two-stage Yelp recommender, semantic search, clinical risk modeling, and product experimentation."
+      content="Machine learning and data science projects by Rohan Akurathi, a two-stage Yelp recommender, semantic search, clinical risk modeling, and product experimentation."
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -31,10 +31,10 @@
       <main class="content-wrap">
         <section class="panel hero-copy">
           <div class="section-kicker">Projects</div>
-          <h1>End-to-end ML, evaluated honestly.</h1>
+          <h1>End-to-end data science, evaluated honestly.</h1>
           <p class="lead">
-            These are systems, not notebooks. Each one frames a real problem, builds a model that earns its complexity, and is
-            measured on data it has never seen — then made interpretable enough to trust.
+            These are systems, not notebooks. Each one frames a real problem, digs into the data, builds a model that earns its
+            complexity, and is measured on data it has never seen, then made interpretable enough to act on.
           </p>
         </section>
 
@@ -52,8 +52,8 @@
               <div class="pf-body">
                 <p>
                   Two production-style systems on the <strong>Yelp Open Dataset</strong> (~7M reviews, 150k businesses, 2M users).
-                  A <strong>two-stage restaurant recommender</strong> — ALS generates candidates, a LightGBM LambdaMART model
-                  reranks them — plus a <strong>semantic search engine</strong> over review text using a fine-tuned sentence
+                  A <strong>two-stage restaurant recommender</strong> (ALS generates candidates, a LightGBM LambdaMART model
+                  reranks them) plus a <strong>semantic search engine</strong> over review text using a fine-tuned sentence
                   encoder and a FAISS index. Everything is evaluated on a held-out <em>future</em> time window, so the scores
                   reflect genuine generalization, not leakage.
                 </p>
@@ -101,9 +101,9 @@
 
               <div class="pf-media">
                 <img src="assets/projects/yelp_recsys_metrics.png" alt="Held-out ranking quality: popularity vs ALS vs two-stage LightGBM across NDCG@10, Recall@10, and MAP@10" />
-                <p class="media-caption">Held-out ranking quality — the two-stage model wins on every metric.</p>
+                <p class="media-caption">Held-out ranking quality: the two-stage model wins on every metric.</p>
                 <img src="assets/projects/yelp_shap_beeswarm.png" alt="SHAP beeswarm plot showing which features drive the ranker's decisions" />
-                <p class="media-caption">SHAP — what actually drives each recommendation.</p>
+                <p class="media-caption">SHAP: what actually drives each recommendation.</p>
               </div>
             </div>
           </article>
@@ -122,7 +122,7 @@
               <h2 style="font-size:1.35rem">Skin Cancer Risk &amp; Clinical Insight Modeling</h2>
               <p>
                 Logistic regression, random forest, and gradient boosting models predicting skin cancer risk from clinical and
-                image features — tuned to balance predictive power with interpretable clinical insight.
+                image features, tuned to balance predictive power with interpretable clinical insight.
               </p>
               <ul>
                 <li>Engineered features and addressed class imbalance.</li>
@@ -141,7 +141,7 @@
               <h2 style="font-size:1.35rem">Causal Inference &amp; Product Experimentation</h2>
               <p>
                 Designed and analyzed randomized experiments to estimate the causal impact of product features on engagement and
-                conversion — measuring real lift, not raw correlation.
+                conversion, measuring real lift, not raw correlation.
               </p>
               <ul>
                 <li>Hypothesis testing and regression to control for confounders.</li>
@@ -182,7 +182,7 @@
             <h2>What I optimize for</h2>
             <ul>
               <li>A sharp definition of the prediction or decision problem.</li>
-              <li>Honest validation — held-out and out-of-time, never a flattering metric.</li>
+              <li>Honest validation, held-out and out-of-time, never a flattering metric.</li>
               <li>Interpretability when stakeholders need to trust the model.</li>
               <li>Turning results into actions, not just charts in a notebook.</li>
             </ul>
